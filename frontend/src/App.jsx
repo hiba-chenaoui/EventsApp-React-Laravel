@@ -1,20 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
-
+import Layout from './pages/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Profile from './pages/profile.jsx';
+import './styles/style.css';
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/test")
-            .then((response) => response.json())
-            .then((data) => setMessage(data.message))
-            .catch((error) => console.error("Erreur:", error));
-    }, []);
+    
 
     return (
-        <div>
-            <h1>Test CORS</h1>
-            <p>Message du backend: {message}</p>
-        </div>
+        <BrowserRouter>
+        
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/profile" element={<Profile/>}/>
+        </Routes>
+
+        </BrowserRouter>
+        
     );
 }
 

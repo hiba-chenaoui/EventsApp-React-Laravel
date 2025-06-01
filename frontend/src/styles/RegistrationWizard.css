@@ -1,0 +1,49 @@
+.wizard-container{
+    position:relative;
+    left:50%;
+    transform:translate(-50%);
+    width:90%;
+    border-radius:30px;
+    padding:20px 90px;
+    background-color:white;
+}
+
+p{
+    text-align :center;
+    font-size:18px;
+    color:rgb(255, 170, 139);
+}
+
+.form-cards{
+    position:relative;
+    left:50%;
+    box-sizing:border-box;
+    margin-top:18px;
+    width:70%;
+    transform:translate(-50%);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    
+}
+.type-card{
+  padding: 18px;
+  text-align: center;
+  background-color:white;
+  margin-bottom:10px;
+  flex: 0 0 150px;
+  border: 1px solid rgb(223, 222, 222);
+  box-shadow:5px 3px 5px -8px rgb(201, 201, 201);
+  border-radius: 10px;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.type-card:hover{
+    border: 1px solid black;
+}
+
+.type-card.active{
+    background-color:rgb(241, 241, 241);
+}
