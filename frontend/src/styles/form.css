@@ -1,0 +1,60 @@
+.form{
+    width:500px;
+    background-color:white;
+    padding:10px;
+    border-radius:20px;
+    box-sizing:border-box;
+
+}
+.form input{
+    position:relative;
+    left:50%;
+    transform:translate(-50%);
+    border-radius:20px;
+    width:70%;
+}
+.form-btn{
+    position:relative;
+    width:70%;
+    border-radius:40px;
+    color:black;
+    border:none;
+    background-color:#ffe97d;
+    padding:10px 0px;
+    margin-top:18px;
+    left:50%;
+    transform:translate(-50%);
+}
+.role-btns{
+    position:relative;
+    left:50%;
+    margin-top:18px;
+    width:70%;
+    transform:translate(-50%);
+    display:flex;
+    justify-content:space-between;
+}
+.role-btn{
+  padding: 8px;
+  text-align: center;
+  background-color:gainsboro;
+  border: 1px solid rgb(223, 222, 222);
+  box-shadow:5px 3px 5px -8px rgb(201, 201, 201);
+  border-radius: 25px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.role-btn:hover{
+    transform:scale(1.02);
+    background-color:#ffe97d;
+
+}
+.role-btn.active{
+ background-color: #ffe97d;
+  color: white;
+  border: 2px solid ;
+  transform: scale(1.05);
+    
+}

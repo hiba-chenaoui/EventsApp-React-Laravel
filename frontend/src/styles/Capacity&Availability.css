@@ -1,0 +1,128 @@
+ .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #FFD700;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #444;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgb(61, 54, 54);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #999;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            accent-color: #FFD700;
+        }
+        .section-header {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .section-header h3 {
+            color: #FFD700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .section-header p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .days-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .day-item {
+            position: relative;
+        }
+
+        .day-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .day-label {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .day-item input[type="checkbox"]:checked + .day-label {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-color: #FFD700;
+            color: #1a1a1a;
+            transform: scale(1.1);
+        }
+
+        
+        input[type="time"] {
+            color-scheme: dark;
+        }
