@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-export default function BusinessTypeCard({data, updateData, next}){
+export default function BusinessTypeCard({data, updateData, next, prev}){
 
     return(
 
@@ -24,6 +24,9 @@ export default function BusinessTypeCard({data, updateData, next}){
                 {Business}
                 </div>
             ))}
+        </div>
+        <div>
+            <img className="prev-next" src="/previous.png" onClick={prev}/>
         </div>
         <div>
             <img className="prev-next" src="/next.png" onClick={next}/>

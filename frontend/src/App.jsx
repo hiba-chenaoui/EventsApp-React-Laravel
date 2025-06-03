@@ -1,9 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Layout from './pages/Layout.jsx';
+import 'leaflet/dist/leaflet.css';
 import Home from './pages/Home.jsx';
 import Profile from './pages/profile.jsx';
+
 import './styles/style.css';
+
 function App() {
     
 

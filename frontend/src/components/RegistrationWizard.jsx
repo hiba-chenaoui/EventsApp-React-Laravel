@@ -3,10 +3,12 @@ import React, {useContext, useState} from 'react'
 import { AppContext } from "../context/AppContext";
 import BusinessTypeCard from './BusinessTypeCard';
 import BusinessInfoCard from './BusinessInfoCard';
-//import SpaceInfoCard from './SpaceInfoCard';
-//import AvailabilityCard from './AvailabilityCard';
+import SpaceInfoCard from './SpaceInfoCard';
+import SpaceTypeCard from './SpaceTypeCard';
 
 import '../styles/RegistrationWizard.css'
+import SpaceLocationCard from './SpaceLocation';
+import CapacityAndAvailability from './Capacity&Availability';
 
 export default function RegistrationWizard(){
     const {user, token} = useContext(AppContext);
@@ -21,10 +23,12 @@ export default function RegistrationWizard(){
             },
             space: {
             name: '',
+            description: '',
             type_of_space: '',
+            address: '',
             capacity: '',
-
-            //availibility ,
+            availibility :'' ,
+            //pricing: '',
             //amenities: [],
             },
     });
@@ -69,23 +73,34 @@ export default function RegistrationWizard(){
             <>
             {step===1  &&  (
                 <BusinessTypeCard data={formData.business} 
-                       updateData={data=>updateFormData('business', data)} next={next}/>
+                       updateData={data=>updateFormData('business', data)} next={next} prev={prev}/>
             )}
             {step===2 &&(
                 <BusinessInfoCard data={formData.business} 
                        updateData={data=>updateFormData('business', data)} next={next} prev={prev}/>  
             )}
-            {/* 
+        
             {step ===3 && (
                 <SpaceInfoCard  data={formData.space} 
                        updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
              )}
 
             
-            {step===3 &&(
-                <AvailabilityCard 
+            {step===4 &&(
+                <SpaceTypeCard data={formData.space}
+                       updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
             )}
-             */}
+
+            {step===5 && (
+                <SpaceLocationCard data={formData.space} 
+                        updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
+            )}
+             
+             {step===6 && (
+                <CapacityAndAvailability data={formData.space}
+                        updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
+
+             )}
              </>
         )}
         </div>
