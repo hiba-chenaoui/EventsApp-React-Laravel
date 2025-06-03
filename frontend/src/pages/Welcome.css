@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Montserratbold';
+    src: url('./src/fonts/static/Montserrat-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    font-family: 'Montserratbold', sans-serif;
+    font-size: 55px;
+    font-weight: normal;
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 900px; /* Constrain width for better readability */
+    line-height: 1.2; /* Better line spacing */
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    background-color: #ffd000;
+    color: white;
+    font-family: 'MontserratBlack', sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translate(3px, -3px); /* Moves the button slightly up and to the right */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #ffda33;
+}
