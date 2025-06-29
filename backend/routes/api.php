@@ -11,3 +11,8 @@ Route::get('/user', function (Request $request) {
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
+
+use App\Http\Controllers\EventController;
+Route::post('/events', [EventController::class, 'store']);
+Route::get('/events', [EventController::class, 'index']);
+

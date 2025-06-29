@@ -4,10 +4,10 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="header1">
       <nav className="navbar">
         <div className="navdiv">
-        <div className="logo">EVENTCANVA</div>
+        <div className="logo1">EVENTCANVA</div>
 
         <ul>
           <li> <Link to="/">HOME</Link></li>

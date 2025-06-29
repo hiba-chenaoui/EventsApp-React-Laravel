@@ -7,10 +7,10 @@
 
   
  /* General layout */
-.header {
+.header1 {
     
     padding-left: 70px;
-    padding-top: 30px;
+    padding-top: 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     color: white;
   }
   
-  .logo {
+  .logo1 {
     
     font-family: 'MontserratBlack', sans-serif;
     font-size: 33px;

@@ -1,0 +1,49 @@
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .filter-card {
+    background-color: white;
+    padding: 1rem;
+    width: 140px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .filter-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .filter-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-card.active {
+    background-color: #ffda33;
+    color: white;
+  }
+  
+  /* Make the icon white */
+  .filter-card.active .filter-icon {
+    filter: brightness(0) invert(1);
+  }
+  
+
+  .filter-icon.active{
+    background-color: #ffda33;
+    color: white;
+  }
+
+ 
+  
+  

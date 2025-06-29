@@ -1,16 +1,24 @@
 import React from "react";
 import "./Card.css";
 
-function Card (){
-    // if we want ot use a real img we will neeed to 
-    // place it in the assests folder and then import it 
-return(
+function Card({ image, title, description, date, time, location }) {
+  return (
     <div className="card">
-    <img className="card-image" src="https://placehold.co/150" alt="card 1 image" />
-    <h2 className="card-title">Card 1 title</h2>
-    <p className="card-text">here we can include the descirption of te card Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat minima omnis debitis natus recusandae dolores doloremque consequuntur ad, ullam iusto earum temporibus ipsum quibusdam expedita praesentium ea sint culpa suscipit.</p>
+      <img className="card-image" src={image} alt={title} />
+
+      <div className="card-content">
+        <h2 className="card-title">{title}</h2>
+
+        <p className="card-description">{description}</p>
+
+        <div className="card-info">
+          <p><strong>Date:</strong> {date}</p>
+          <p><strong>Time:</strong> {time}</p>
+          <p><strong>Location:</strong> {location}</p>
+        </div>
+      </div>
     </div>
-)
+  );
 }
 
 export default Card;

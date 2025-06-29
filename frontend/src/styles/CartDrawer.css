@@ -1,0 +1,145 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  
+  /* Modal Container */
+  .modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+  }
+  
+  /* Headers */
+  .modal-content h2,
+  .modal-content h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Cart Items */
+  .cart-item {
+    background: #f9f9f9;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    border-radius: 6px;
+    border-left: 3px solid #00c897;
+  }
+  
+  .cart-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+  }
+  
+  .cart-item p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  .cart-item hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 1rem 0;
+  }
+  
+  /* Total Price */
+  .modal-content p:has(strong) {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  
+  .modal-content p strong {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  /* Form Inputs */
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .modal-content input:focus,
+  .modal-content textarea:focus {
+    outline: none;
+    border-color: #00c897;
+  }
+  
+  .modal-content textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Buttons */
+  .modal-content button {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    background-color: #00c897;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .modal-content button:hover {
+    background-color: #00b085;
+  }
+  
+  /* Cancel Button */
+  .modal-content button:last-child {
+    background-color: #666;
+  }
+  
+  .modal-content button:last-child:hover {
+    background-color: #555;
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .modal-content {
+      width: 95%;
+      padding: 1.5rem;
+    }
+  
+    .modal-content button {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }

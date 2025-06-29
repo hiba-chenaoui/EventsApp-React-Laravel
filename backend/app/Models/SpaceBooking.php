@@ -5,23 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class SpaceBooking extends Model
 {
     use HasFactory;
 
+    protected $table = 'space_bookings';
     protected $fillable = [
-        'title',
-        'description',
-        'date',
-        'time',
-        'location',
+        'space_id',
         'organizer_id',
-        'image'
+        'booking_date',
+        'start_time',
+        'end_time',
     ];
+    
 
-    // The event belongs to an organizer
+    // Relationships
+
+    public function space()
+    {
+        return $this->belongsTo(Space::class, 'space_id');
+    }
+
     public function organizer()
     {
         return $this->belongsTo(User::class, 'organizer_id');
     }
+    
 }

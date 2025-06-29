@@ -65,44 +65,66 @@ export default function RegistrationWizard(){
     }
     };
 
-    return(
-        <div className="wizard-container">
-        <h1>Awesome, {user.name} !</h1>
-        {user.role ==="Service-provider" && (
-       
-            <>
-            {step===1  &&  (
-                <BusinessTypeCard data={formData.business} 
-                       updateData={data=>updateFormData('business', data)} next={next} prev={prev}/>
-            )}
-            {step===2 &&(
-                <BusinessInfoCard data={formData.business} 
-                       updateData={data=>updateFormData('business', data)} next={next} prev={prev}/>  
-            )}
-        
-            {step ===3 && (
-                <SpaceInfoCard  data={formData.space} 
-                       updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
-             )}
-
-            
-            {step===4 &&(
-                <SpaceTypeCard data={formData.space}
-                       updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
-            )}
-
-            {step===5 && (
-                <SpaceLocationCard data={formData.space} 
-                        updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
-            )}
-             
-             {step===6 && (
-                <CapacityAndAvailability data={formData.space}
-                        updateData={data=>updateFormData('space', data)} next={next} prev={prev}/>
-
-             )}
-             </>
-        )}
-        </div>
-    )
+    return (
+        <>
+          {/* Service-provider without background */}
+          {user.role === "Service-provider" && (
+            <div className="wizard-container">
+              <h1>Awesome, {user.name}!</h1>
+      
+              {step === 1 && (
+                <BusinessTypeCard
+                  data={formData.business}
+                  updateData={(data) => updateFormData('business', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+              {step === 2 && (
+                <BusinessInfoCard
+                  data={formData.business}
+                  updateData={(data) => updateFormData('business', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+              {step === 3 && (
+                <SpaceInfoCard
+                  data={formData.space}
+                  updateData={(data) => updateFormData('space', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+              {step === 4 && (
+                <SpaceTypeCard
+                  data={formData.space}
+                  updateData={(data) => updateFormData('space', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+              {step === 5 && (
+                <SpaceLocationCard
+                  data={formData.space}
+                  updateData={(data) => updateFormData('space', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+              {step === 6 && (
+                <CapacityAndAvailability
+                  data={formData.space}
+                  updateData={(data) => updateFormData('space', data)}
+                  next={next}
+                  prev={prev}
+                />
+              )}
+            </div>
+          )}
+      
+          
+        </>
+      );
+      
 }

@@ -29,7 +29,7 @@ export default function NavBar({setForm}){
 
     return(
      <header className="header">
-      <h1 className="logo">SoulHub</h1>
+      <h1 className="logo">EVENTCANVA</h1>
 
       <div className="dual-button">
         { user ? (
