@@ -56,6 +56,7 @@ class SpaceController extends Controller
         $space->amenities()->sync($amenityIds);
 
         if ($request->hasFile('space.images')) {
+            
         foreach ($request->file('space.images') as $imageFile) {
             $path = $imageFile->store('spaces', 'public');
             $space->images()->create([
