@@ -1,5 +1,5 @@
 // SpaceCard.jsx
-import { Edit, MapPin, Users, Calendar, Camera } from 'lucide-react';
+import { Edit, MapPin, Users, Calendar, Camera ,X} from 'lucide-react';
 import Amenities from './Amenities';
 import SpaceEditForm from './SpaceEditForm';
 
@@ -13,9 +13,9 @@ const SpaceCard = ({
   handleSaveSpace,
   cancelEdit,
   saving,
-  handleImageUpload,
   onViewBookings,
   getAmenityIcon,
+  onDelete
 }) => (
   <div className="space-card">
     <div className="space-image-container">
@@ -31,6 +31,15 @@ const SpaceCard = ({
         <button className="action-btn" title="Edit" onClick={() => handleEditSpace(space, index)}>
           <Edit size={16} />
         </button>
+        <button
+                className="action-btn"
+                title=" Delete"
+                onClick={
+                  onDelete
+                }
+            >
+                <X size={16} />
+           </button>
       </div>
     </div>
 
@@ -42,7 +51,6 @@ const SpaceCard = ({
           saving={saving}
           handleSaveSpace={handleSaveSpace}
           cancelEdit={cancelEdit}
-          handleImageUpload={handleImageUpload}
           index={index}
         />
       ) : (

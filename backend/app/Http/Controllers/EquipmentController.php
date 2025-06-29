@@ -93,4 +93,11 @@ public function update(Request $request, $id)
         'equipment' => $equipment,
     ]);
 }
+
+public function delete($id)
+{
+    $equipment = Equipment::findOrFail($id);
+    $equipment->delete();
+    return response()->json(['message' => 'Equipment deleted successfully']);
+}
 }

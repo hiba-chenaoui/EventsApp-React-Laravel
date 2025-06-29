@@ -31,6 +31,7 @@ Route::put('/business-space/update/{id}', [SpaceController::class, 'update']);
 
 Route::get('/space/{id}/bookings',[SpaceController::class, 'getBookings'])
     ->middleware('auth:sanctum');
+Route::delete('/space/delete/{id}', [SpaceController::class, 'delete'])->middleware('auth:sanctum');
 
 
 // Equipment Provider Routes
@@ -41,6 +42,7 @@ Route::post('/addEquipment', [EquipmentController::class, 'addEquipment'])
 ->middleware('auth:sanctum');
 
 Route::put('/equipments/update/{id}', [EquipmentController::class, 'update']);
+Route::delete('/equipments/delete/{id}', [EquipmentController::class, 'delete']);
 
 
 

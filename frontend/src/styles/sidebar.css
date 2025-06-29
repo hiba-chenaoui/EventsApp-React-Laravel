@@ -20,28 +20,10 @@
   font-style: normal;
 }
 
-/* Reset and base styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-}
-
-body, .main-container {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'PoppinsLight', sans-serif;
-  background-color: #fafafa;
-
-}
-
 /* Enhanced Sidebar Styling with animations */
 /* Sidebar background fix */
 .sidebar {
-  margin-top: 14px;
+  margin-top: 11px;
   position: fixed;
   top: 62px;
   left: 0;
@@ -76,11 +58,11 @@ body, .main-container {
 
 /* Sidebar width states with improved transitions */
 .sidebar.open {
-  width: 270px;
+  width: 200px;
 }
 
 .sidebar.closed {
-  width: 100px;
+  width: 80px;
 }
 
 /* Toggle button styling with animation */
@@ -107,7 +89,7 @@ body, .main-container {
 }
 
 .toggle-btn:hover {
-  background-color: #d9ef74;
+  background-color: #f8ff93;
   transform: scale(1.1);
 }
 
@@ -123,11 +105,11 @@ body, .main-container {
 }
 
 .sidebar.closed .toggle-btn {
-  margin-left: 70px;
+  margin-left: 50px;
 }
 
 .sidebar.open .toggle-btn {
-  margin-left: 200px;
+  margin-left: 170px;
 }
 
 .sidebar.closed .toggle-icon {
@@ -155,6 +137,7 @@ body, .main-container {
   font-size: 0.95rem;
   font-family: 'PoppinsMedium', sans-serif;
   padding: 0.8rem 1.2rem;
+  margin-right: 1rem;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -177,7 +160,7 @@ body, .main-container {
 
 /* Active state for menu item with animation */
 .menu-item.active {
-  background-color: #DDEB9D;
+  background-color: #f8ff93;
   color: rgb(43, 43, 43);
   box-shadow: 0 2px 8px rgba(221, 235, 157, 0.5);
 }
@@ -189,7 +172,7 @@ body, .main-container {
   top: 0;
   height: 100%;
   width: 4px;
-  background-color: #A0C878;
+  background-color: #f8ff93;
   transform: scaleY(1);
   transition: transform 0.3s ease;
 }
@@ -201,7 +184,7 @@ body, .main-container {
 
 /* Hover effect on menu item with subtle animations */
 .menu-item:hover {
-  background-color: #DDEB9D;
+  background-color: #f9ffa8;
   color: rgb(43, 43, 43);
   transform: translateX(4px);
   font-size: 1rem;

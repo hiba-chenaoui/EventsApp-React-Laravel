@@ -8,6 +8,7 @@ import BusinessInfoCard from './BusinessInfoCard';
 import SpaceInfoCard from './SpaceInfoCard';
 import SpaceTypeCard from './SpaceTypeCard';
 import EquipmentListCard from './EquipmentListCard';
+import UploadImagesCard from './UploadImagesCard';
 
 
 import '../styles/RegistrationWizard.css'
@@ -15,6 +16,7 @@ import SpaceLocationCard from './SpaceLocation';
 import CapacityAndAvailability from './Capacity&Availability';
 import Pricing from './Pricing';
 import Amenities from './FormAmenities';
+import { Upload } from 'lucide-react';
 
 export default function RegistrationWizard(){
     const {user, token} = useContext(AppContext);
@@ -51,6 +53,7 @@ export default function RegistrationWizard(){
                 Soundproof: false,
                 Lockers: false,
                 },
+            images: [],
             },
             equipments: [] 
     });
@@ -69,6 +72,7 @@ export default function RegistrationWizard(){
             "SpaceType",
             "SpaceLocation",
             "CapacityAndAvailability",
+            "ImageUpload",
             "PricingAndAmenities"
             ];
         }
@@ -208,7 +212,14 @@ export default function RegistrationWizard(){
                 prev={prev}
             />
             )}
-
+            {steps[step - 1] === "ImageUpload" && (
+                <UploadImagesCard 
+                data={formData.space}
+                updateData={data => updateFormData('space', data)}
+                next={next}
+                prev={prev}
+                />
+            )}
             {steps[step - 1] === "PricingAndAmenities" && (
             <>
                 <Pricing

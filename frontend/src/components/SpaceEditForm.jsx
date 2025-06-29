@@ -7,7 +7,6 @@ const SpaceEditForm = ({
   saving,
   handleSaveSpace,
   cancelEdit,
-  handleImageUpload,
   index
 }) => (
   <div className="edit-form">
@@ -44,40 +43,16 @@ const SpaceEditForm = ({
       />
     </div>
     
-    <div className="image-upload-section">
-      <label>Photos</label>
-      <input
-        type="file"
-        multiple
-        accept="image/*"
-        onChange={handleImageUpload}
-        style={{ display: 'none' }}
-        id={`image-upload-${index}`}
-      />
-      <label htmlFor={`image-upload-${index}`} className="image-upload-btn">
-        <Upload size={24} />
-        <span>Upload Photos</span>
-      </label>
-      {spaceForm.images && spaceForm.images.length > 0 && (
-        <div className="uploaded-images">
-          {spaceForm.images.map((image, imgIndex) => (
-            <div key={imgIndex} className="uploaded-image">
-              <img src={image} alt={`Space ${imgIndex + 1}`} />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-    <div className="form-actions">
+    <div className="edit-form-actions">
       <button
-        className={`btn-save ${saving ? 'disabled' : ''}`}
+        className={`edit-save ${saving ? 'disabled' : ''}`}
         onClick={handleSaveSpace}
         disabled={saving}
       >
         <Save size={16} />
         {saving ? 'Saving...' : 'Save Changes'}
       </button>
-      <button className="btn-cancel" onClick={cancelEdit} disabled={saving}>
+      <button className="edit-cancel" onClick={cancelEdit} disabled={saving}>
         <X size={16} />
         Cancel
       </button>

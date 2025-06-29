@@ -2,6 +2,7 @@ import React, { useEffect, useState , useContext} from 'react';
 import { MapPin, Phone, Users, DollarSign, Heart, Calendar, Leaf, Activity, Edit, Eye, Save, X, Check, Star, Wifi, Car, Coffee, Music, Dumbbell, Camera, Upload } from 'lucide-react';
 import '../styles/BusinessProfile.css'; 
 import Sidebar from '../components/sidebar';
+import NavBar from '../components/navBar';
 import NewSpaceWizard from '../components/newSpaceWizard';
 import BusinessHeader from '../components/BusinessHeader';
 import SpaceCard from '../components/SpaceCard';
@@ -25,6 +26,7 @@ const BusinessProfile = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [availableAmenities, setAvailableAmenities] = useState([]);
   const [amenities, setAmenities] = useState({});
+  const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
   
   
@@ -88,15 +90,7 @@ const BusinessProfile = () => {
   };
   
 
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
-    // In a real app, you'd upload to a service and get URLs back
-    const imageUrls = files.map(file => URL.createObjectURL(file));
-    setSpaceForm({
-      ...spaceForm,
-      images: [...(spaceForm.images || []), ...imageUrls]
-    });
-  };
+  
 
   const handleSaveSpace = async () => {
     setSaving(true);
@@ -121,17 +115,15 @@ const BusinessProfile = () => {
         throw new Error("Failed to update space");
       }
 
-      const updatedSpace = await response.json();
+      const newdata = await response.json();
+      const updatedSpace = newdata.space;
       setData(prev => ({
         ...prev,
-        spaces: prev.spaces.map((space, index) => 
+        space: prev.spaces.map((space, index) => 
           index === editingSpace ? updatedSpace : space
-        )
+          )
       }));
       setEditingSpace(null);
-      navigate('/businessProfile');
-      setSuccessMessage('Space updated successfully!');
-      setTimeout(() => setSuccessMessage(''), 3000);
     } catch (error) {
       console.error("Error updating space:", error);
       alert('Failed to update space information');
@@ -194,6 +186,41 @@ const handleAddEquipment = async (formData)=>{
     }
    }
 
+   
+const handleDeleteEquipment = async (id) => {
+  const res = await fetch(`api/equipments/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json', // optional, but good practice
+    },
+  });
+
+  if (res.ok) {
+     setData((prev) => ({
+      ...prev,
+      equipments: prev.equipments.filter((eq) => eq.id !== id),
+    }));
+  };
+}
+
+
+
+const handleDeleteSpace = async (id) => {
+  const res = await fetch(`api/space/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (res.ok) {
+     setData((prev) => ({
+      ...prev,
+      space: prev.spaces.filter((sp) => sp.id !== id),
+    }));
+  };
+}
   const formatAddress = (address) => {
     if (!address) return '';
     return `${address.street}, ${address.city}, ${address.state}`;
@@ -207,7 +234,10 @@ const handleAddEquipment = async (formData)=>{
 
   return (
 
-    <div className="space-profile-container">
+    <>
+      <NavBar />
+      <Sidebar isOpen={isOpen}  setIsOpen={setIsOpen}/>
+      <div className={`space-profile-container ${isOpen ? 'wider' : 'narrower'}`}>
       
       <BusinessHeader business={business} spaces={spaces}/>
 
@@ -238,8 +268,8 @@ const handleAddEquipment = async (formData)=>{
                 handleSaveSpace={handleSaveSpace}
                 cancelEdit={() => setEditingSpace(null)}
                 saving={saving}
-                handleImageUpload={handleImageUpload}
                 onViewBookings={() => setViewBookings(space.id)}
+                onDelete={(id) => handleDeleteSpace(space.id)}
               />
             ))}
             </div>
@@ -255,16 +285,20 @@ const handleAddEquipment = async (formData)=>{
                 <span>+</span> Add New Equipment
               </button>
 
-              {showAddEquipment && <AddEquipmentForm onSubmit={handleAddEquipment}/>}
+              {showAddEquipment && <AddEquipmentForm onSubmit={handleAddEquipment} onCancel={() => setShowAddEquipment(false)}/>}
               <div className="equipments-grid">
                 {data.equipments.map((equipment, index) => (
-                  <EquipmentCard key={index} equipment={equipment}  onSave={(updatedEquipment)=>handleUpdateEquipment(updatedEquipment)}/>
+                  <EquipmentCard key={index} equipment={equipment}  onSave={(updatedEquipment)=>handleUpdateEquipment(updatedEquipment)}
+                  onDelete={(id) => handleDeleteEquipment(equipment.id)}
+                  />
                 ))}
               </div>
             </>
           )}
       </div>
   </div>
+    </>
+    
 );
 };
               

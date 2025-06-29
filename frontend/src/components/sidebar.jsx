@@ -2,27 +2,26 @@
 
 import { useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
-import { Link } from "react-router-dom";
+import { Link , useLocation } from "react-router-dom";
+
 
 
 
 import "../styles/sidebar.css";
 
 
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+export default function Sidebar( {isOpen, setIsOpen} ) {
+  
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const pathname = usePathname();
+  const location = useLocation();
+  const pathname = location.pathname;
 
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    setDropdownOpen(false);
-  }, [pathname]);
 
   return (
     <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
@@ -37,33 +36,18 @@ export default function Sidebar() {
 
       <nav className="menu">
         {/* Feed */}
-        <Link href="/feed" className={`menu-item ${pathname === "/feed" ? "active" : ""}`}>
+        <Link to="/" className={`menu-item ${pathname === "/" ? "active" : ""}`}>
         <img src="/icons/home.svg" alt="Feed" className="svg-icon" />
-        {isOpen && <span>Feed</span>}
+        {isOpen && <span>Home</span>}
         </Link>
 
-       
-
-        {/* Blog */}
-        <Link href="/blog" className={`menu-item ${pathname === "/blog" ? "active" : ""}`}>
-          <img src="/icons/blog.svg"alt="Blog" className="svg-icon" />
-          {isOpen && <span>Blog</span>}
+        <Link
+          href="/profile"
+          className={`menu-item member-only show ${pathname.startsWith("/businessProfile") ? "active" : ""}`}
+        >
+          <img src="/icons/profile.svg" alt="Profile" className="svg-icon" />
+          {isOpen && <span>Profile</span>}
         </Link>
-
-        {/* Profile (member only) 
-        {isMember && (
-
-        */}
-          <Link
-            href="/profile"
-            className={`menu-item member-only show ${pathname.startsWith("/profile") ? "active" : ""}`}
-          >
-            <img src="/icons/profile.svg" alt="Profile" className="svg-icon" />
-            {isOpen && <span>Profile</span>}
-          </Link>
-        {/*  })}  */}
-
-        {/* Manager-only section */}
 
       </nav>
     </aside>

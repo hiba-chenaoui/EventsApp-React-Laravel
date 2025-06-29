@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Camera, Edit , X, Save} from 'lucide-react';
 
-const EquipmentCard = ({ equipment , onSave}) => {
+const EquipmentCard = ({ equipment , onSave, onDelete}) => {
 
 const [isEditing, setIsEditing] = useState(false);
 const [formData, setFormData] = useState({
@@ -16,8 +16,22 @@ const handleSave = () => {
   onSave({ ...equipment, ...formData });
   setIsEditing(false);
 };
+/*
+const handleDelete = async (id) => {
+  const res = await fetch(`api/equipments/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json', // optional, but good practice
+    },
+  });
 
-
+  if (res.ok) {
+    const data = await res.json();
+    console.log("Equipment deleted:", data);
+  };
+}
+*/
 return(
   <div className="space-card">
     <div className="equipment-image-container">
@@ -35,13 +49,24 @@ return(
       )}
       <div className="space-actions-overlay">
        {!isEditing ? (
-        <button className="action-btn" title="Edit" 
-          onClick={() => setIsEditing(true)}
-        >
-          <Edit size={16} 
-            
-          />
-        </button>
+        <>
+            <button className="action-btn" title="Edit" 
+              onClick={() => setIsEditing(true)}
+            >
+              <Edit size={16} 
+                
+              />
+            </button>
+             <button
+                className="action-btn"
+                title=" Delete"
+                onClick={
+                  onDelete
+                }
+            >
+                <X size={16} />
+            </button>
+        </>
        ):(
           <>
             <button

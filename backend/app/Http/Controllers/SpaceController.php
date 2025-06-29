@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\BusinessProfile;
 use App\Models\Space;
 use App\Models\Amenity;
+use Illuminate\Support\Facades\Storage;
 
 class SpaceController extends Controller
 {
@@ -54,6 +55,15 @@ class SpaceController extends Controller
         //4. attaching amenities to space
         $space->amenities()->sync($amenityIds);
 
+        if ($request->hasFile('space.images')) {
+        foreach ($request->file('space.images') as $imageFile) {
+            $path = $imageFile->store('spaces', 'public');
+            $space->images()->create([
+                'image_url' => Storage::url($path), // e.g. /storage/spaces/filename.jpg
+            ]);
+            
+        }
+       }
         //5. commit transaction
         DB::commit();
         return response()->json(['success' => true, 'business' => $businessProfile, 'space' => $space]);
@@ -251,5 +261,23 @@ public function getBookings($id)
         'bookings' => $bookings,
     ]);
  
-   }       
+   }    
+   
+public function delete($id)
+{
+    $space = Space::findOrFail($id);
+
+    // Check if the authenticated user is the owner of the space
+    if ($space->businessProfile->user_id !== Auth::id()) {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    // Delete the space and its associated amenities
+    $space->amenities()->detach();
+    $space->delete();
+
+    return response()->json([
+        'message' => 'Space deleted successfully',
+    ], 200);
+}
 }

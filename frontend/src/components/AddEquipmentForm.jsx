@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from "../context/AppContext";
 import '../styles/AddEquipmentForm.css';
 
-export default function AddEquipmentForm({onSubmit}) {
+export default function AddEquipmentForm({onSubmit, onCancel}) {
      const {token} = useContext(AppContext);
      const navigate = useNavigate();
      const [imagePreview, setImagePreview] = useState(null);
@@ -46,7 +46,6 @@ export default function AddEquipmentForm({onSubmit}) {
     const handleCancel = () => {
     setFormData({ title: '', price: '', image: '' });
     setImagePreview(null);
-    setError('');
      if (onCancel) {
         onCancel();
         }

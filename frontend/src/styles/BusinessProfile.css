@@ -1,13 +1,20 @@
 
- .space-profile-container{
-    width: 100%;
-    background-color: #f5f4f4;
-    margin-top:0rem;
-    padding: 24px;
-    font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-          
- }
+ .space-profile-container {
 
+    background-color: #f5f4f4;
+    margin-top: 70px;
+    padding: 24px;
+    font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+    transition: width 0.3s ease-out, margin-left 0.3s ease-out;       
+ }
+ .space-profile-container.wider{
+  width: calc(100% - 250px);
+   margin-left:200px;
+ }
+ .space-profile-container.narrower{
+  width: calc(100% - 150px);
+   margin-left:100px;
+ }
 .success-message {
 background: #00a699;
 color: white;
@@ -448,14 +455,15 @@ cursor: pointer;
 color: #ff385c;
 }
 
-.form-actions {
+.edit-form-actions {
 display: flex;
 gap: 12px;
 margin-top: 20px;
 }
 
-.btn-save, .btn-cancel {
-padding: 12px 24px;
+.edit-save, .edit-cancel {
+z-index: 40;
+padding: 12px 14px;
 border: none;
 border-radius: 8px;
 font-weight: 600;
@@ -466,22 +474,22 @@ align-items: center;
 gap: 8px;
 }
 
-.btn-save {
+.edit-save {
 background: #f9ffa9;
 color: rgb(0, 0, 0);
 }
 
-.btn-save:hover {
+.edit-save:hover {
 background: #fbffc3;;
 }
 
-.btn-cancel {
+.edit-cancel {
 background: #f7f7f7;
 color: #222222;
 border: 1px solid #dddddd;
 }
 
-.btn-cancel:hover {
+.edit-cancel:hover {
 background: #ebebeb;
 }
 
