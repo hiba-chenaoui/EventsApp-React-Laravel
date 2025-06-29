@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-
-export default function BusinessTypeCard({data, updateData, next, prev}){
+export default function BusinessTypeCard({data, updateData, next, prev, username}){
 
     return(
 
         <>
+       <h1>Awesome, {username} !</h1>
         <p>What best describes your business?</p>
         <div className="form-cards">
             
@@ -25,11 +25,9 @@ export default function BusinessTypeCard({data, updateData, next, prev}){
                 </div>
             ))}
         </div>
-        <div>
-            <img className="prev-next" src="/previous.png" onClick={prev}/>
-        </div>
-        <div>
-            <img className="prev-next" src="/next.png" onClick={next}/>
+        <div className="prev-next">
+            <img className="prev" src="/previous.png" onClick={prev} disabled={true}/>
+            <img className="next" src="/next.png" onClick={next}  disabled={!data?.business_type}/>
         </div>
         </>
 

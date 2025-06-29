@@ -28,5 +28,9 @@ class BusinessProfile extends Model
     {
         return $this->hasMany(Space::class);
     }
+    public function equipments()
+    {
+        return $this->hasMany(Equipment::class, 'provider_id');
+    }
     
 }

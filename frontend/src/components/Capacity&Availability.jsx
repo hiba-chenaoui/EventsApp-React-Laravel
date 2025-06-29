@@ -39,59 +39,59 @@ export default function CapacityAndAvailability({ data, updateData, next, prev }
 
   return (
     <div className="capacity-availability">
-  <div className="form-group">
-    <label>How many people can your space accommodate?</label>
-    <input
-      type="number"
-      value={capacity}
-      onChange={(e) => setCapacity(e.target.value)}
-      placeholder="eg, 50"
-    />
-  </div>
-
-  <div className="section-header">
-    <h3>Availability</h3>
-    <p>Set your operating hours per day:</p>
-  </div>
-
-  <div className="checkbox-group">
-    {daysOfWeek.map(day => (
-      <div key={day} className="day-item">
+      <div className="form-group">
+        <label>How many people can your space accommodate?</label>
         <input
-          type="checkbox"
-          id={day}
-          checked={availability[day].active}
-          onChange={() => handleDayToggle(day)}
+          type="number"
+          value={capacity}
+          onChange={(e) => setCapacity(e.target.value)}
+          placeholder="eg, 50"
         />
-        <label htmlFor={day} className="day-label">
-          {day.charAt(0).toUpperCase()}
-        </label>
-        {availability[day].active && (
-          <div className="form-row">
-            <div className="form-group">
-              <input
-                type="time"
-                value={availability[day].open}
-                onChange={(e) => handleTimeChange(day, "open", e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="time"
-                value={availability[day].close}
-                onChange={(e) => handleTimeChange(day, "close", e.target.value)}
-              />
-            </div>
-          </div>
-        )}
       </div>
-    ))}
-  </div>
 
-  <div className="navigation-buttons">
-    <img className="prev-next" src="/previous.png" onClick={prev} />
-    <img className="prev-next" src="/next.png" onClick={next} />
-  </div>
+      <div className="section-header">
+        <h3>Availability</h3>
+        <p>Set your operating hours per day:</p>
+      </div>
+
+      <div className="checkbox-group">
+        {daysOfWeek.map(day => (
+          <div key={day} className="day-item">
+            <input
+              type="checkbox"
+              id={day}
+              checked={availability[day].active}
+              onChange={() => handleDayToggle(day)}
+            />
+            <label htmlFor={day} className="day-label">
+              {day.charAt(0).toUpperCase()}
+            </label>
+            {availability[day].active && (
+              <div className="form-row">
+                <div className="form-group">
+                  <input
+                    type="time"
+                    value={availability[day].open}
+                    onChange={(e) => handleTimeChange(day, "open", e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="time"
+                    value={availability[day].close}
+                    onChange={(e) => handleTimeChange(day, "close", e.target.value)}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="prev-next">
+            <img className="prev" src="/previous.png" onClick={prev}/>
+            <img className="next" src="/next.png" onClick={next}/>
+      </div>
 </div>
             
   );

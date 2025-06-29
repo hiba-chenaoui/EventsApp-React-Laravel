@@ -15,6 +15,8 @@ class Space extends Model
         'address',
         'type_of_space',
         'capacity',
+        'price_per_hour',
+        'price_per_day',
         'description',
         'availability_json',
     ];
@@ -32,5 +34,9 @@ class Space extends Model
     public function images()
     {
         return $this->hasMany(SpaceImage::class);
+    }
+    public function bookings()
+    {
+        return $this->hasMany(SpaceBooking::class, 'space_id');
     }
 }

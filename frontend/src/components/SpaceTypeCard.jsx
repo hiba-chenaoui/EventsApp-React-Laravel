@@ -16,7 +16,7 @@ export default function SpaceTypeCard({data, updateData , next, prev}){
 ];
 
     return(
-        <div>
+        <>
             <h3>Space Type</h3>
             <p>What type of space are you offering?</p>
             <div className="form-cards">
@@ -44,12 +44,10 @@ export default function SpaceTypeCard({data, updateData , next, prev}){
                     )
                 })}
             </div>
-            <div>
-                 <img className="prev-next" src="/next.png" onClick={next}/>
+           <div className="prev-next">
+                <img className="prev" src="/previous.png" onClick={prev}/>
+                <img className="next" src="/next.png" onClick={next}/>
             </div>
-            <div>
-                <img className="prev-next" src="/previous.png" onClick={prev}/>
-            </div>
-        </div>
+        </>
     )
 }

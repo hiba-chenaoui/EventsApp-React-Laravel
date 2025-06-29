@@ -1,0 +1,390 @@
+/* Font imports */
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PoppinsLight';
+  src: url('../fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Reset and base styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body, .main-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'PoppinsLight', sans-serif;
+  background-color: #fafafa;
+
+}
+
+/* Enhanced Sidebar Styling with animations */
+/* Sidebar background fix */
+.sidebar {
+  margin-top: 14px;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  height: calc(100vh - 72px);
+  background-color: #ffffff !important; /* Pure white as hex */
+  background: #ffffff !important; /* Redundant background property for extra coverage */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  box-shadow: none;
+  z-index: 10;
+  border-right: 1px solid #e0e0e0;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease;
+  will-change: width, padding, transform;
+  animation: sidebarEntrance 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes sidebarEntrance {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Sidebar width states with improved transitions */
+.sidebar.open {
+  width: 270px;
+}
+
+.sidebar.closed {
+  width: 100px;
+}
+
+/* Toggle button styling with animation */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  width: 100%;
+}
+
+.toggle-btn {
+  background-color: #f3f3f3;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-top: -10px;
+  margin-bottom:15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #d9ef74;
+  transform: scale(1.1);
+}
+
+.toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.toggle-icon {
+  width: 12px;
+  height: 12px;
+  fill: #555;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.closed .toggle-btn {
+  margin-left: 70px;
+}
+
+.sidebar.open .toggle-btn {
+  margin-left: 200px;
+}
+
+.sidebar.closed .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Menu container with staggered children animation */
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  background-color: transparent;
+}
+
+/* Menu item styling with hover animations */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #555;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'PoppinsMedium', sans-serif;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: menuItemFadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.05s);
+  opacity: 0;
+}
+
+@keyframes menuItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active state for menu item with animation */
+.menu-item.active {
+  background-color: #DDEB9D;
+  color: rgb(43, 43, 43);
+  box-shadow: 0 2px 8px rgba(221, 235, 157, 0.5);
+}
+
+.menu-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #A0C878;
+  transform: scaleY(1);
+  transition: transform 0.3s ease;
+}
+
+.menu-item.active .svg-icon {
+  fill: rgb(43, 43, 43);
+  transform: scale(1.1);
+}
+
+/* Hover effect on menu item with subtle animations */
+.menu-item:hover {
+  background-color: #DDEB9D;
+  color: rgb(43, 43, 43);
+  transform: translateX(4px);
+  font-size: 1rem;
+}
+
+/* SVG icon styling with transitions */
+.svg-icon {
+  width: 18px;
+  height: 18px;
+  fill: #666;
+  flex-shrink: 0;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+/* When hovering the menu item, animate icon */
+.menu-item:hover .svg-icon {
+  fill: rgb(43, 43, 43);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* When sidebar is closed - animated transitions */
+.sidebar.closed .menu-item {
+  justify-content: center;
+  padding: 0.8rem;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              justify-content 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.closed .menu-item span {
+  display: none;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar.open .menu-item span {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+/* Menu section dividers with animation */
+.menu-section {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #999;
+  font-family: 'PoppinsLight', sans-serif;
+  letter-spacing: 1px;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.closed .menu-section {
+  opacity: 0;
+  transform: translateX(-20px);
+  display: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, display 0s linear 0.2s;
+}
+
+/* Dropdown styling with animations */
+.dropdown {
+  width: 100%;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+/* NEW: Specific styling for dropdown arrow icon */
+.dropdown-arrow-icon {
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-arrow-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar.closed .dropdown-toggle {
+  display: none;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  margin-left: 2.5rem;
+}
+
+.dropdown.open .dropdown-content {
+  max-height: 500px;
+  transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: dropdownItemAppear 0.3s forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.05s);
+}
+
+@keyframes dropdownItemAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item:hover {
+  color: #A0C878;
+  transform: translateX(5px);
+}
+
+
+/* Conditional Role Styles */
+.menu-item.manager-only,
+.menu-item.member-only {
+  display: none;
+}
+
+.menu-item.manager-only.show,
+.menu-item.member-only.show {
+  display: flex;
+  animation: roleItemAppear 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes roleItemAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 50px;
+  }
+}
+.menu-item.dropdown-toggle.active::before {
+  /* Remove or override the active border */
+  display: none;
+}
+
+/* And make sure your dropdown toggle has proper styling */
+.dropdown-toggle {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* New rule to hide dropdown arrow icon when sidebar is closed */
+.sidebar.closed .dropdown-arrow-icon {
+  display: none;
+}
+
+/* Hide all dropdown content when sidebar is closed */
+.sidebar.closed .dropdown-content {
+  display: none;
+}
+
+

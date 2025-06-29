@@ -1,0 +1,254 @@
+
+.card-title {
+  background-color: #fdff8c;
+  color: rgb(10, 10, 10);
+  padding: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.form-section {
+  padding: 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #efff08;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.add-button {
+  background-color: #1d1d1d;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  font-family: inherit;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+.equipment-list {
+  padding: 32px;
+  min-height: 200px;
+}
+
+.list-title {
+  color: #374151;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.equipment-item {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.equipment-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #e5e7eb;
+  display: block;
+}
+
+.equipment-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.equipment-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4d635c;
+}
+.equipment-quantity {
+  background-color: #e7e7e7;        
+  color: #1b1b1b;   
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.empty-state {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px 20px;
+  grid-column: 1 / -1;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  display: block;
+}
+
+.empty-state p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.navigation-buttons {
+  padding: 24px 32px;
+  background: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-button {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  font-family: inherit;
+}
+
+.prev{
+    width: 32px;
+    height: 32px;
+}
+
+
+.finish-button {
+  background-color: #f3fd6b; 
+  color: rgb(5, 5, 5);
+  box-shadow: 0 4px 12px rgba(68, 68, 68, 0.3);
+}
+
+.finish-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-section, 
+  .equipment-list {
+    padding: 20px;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .equipment-list-card {
+    margin: 10px;
+    border-radius: 12px;
+  }
+  
+  .form-section,
+  .equipment-list,
+  .navigation-buttons {
+    padding: 16px;
+  }
+  
+  .input-grid {
+    gap: 12px;
+  }
+  
+  .form-input {
+    padding: 14px;
+    font-size: 14px;
+  }
+  
+  .add-button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}

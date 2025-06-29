@@ -5,7 +5,7 @@ import Button from "../components/button";
 import "../styles/navbar.css"
 
 export default function NavBar({setForm}){
-    const {user, token} = useContext(AppContext);
+    const {user,setUser, token, setToken} = useContext(AppContext);
     const navigate = useNavigate(); 
    
 
@@ -22,6 +22,8 @@ export default function NavBar({setForm}){
         });
         const data= await res.json();
         console.log(data);
+        setUser(null);
+        setToken(null);
         navigate("/");
 
     }

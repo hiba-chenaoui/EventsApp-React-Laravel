@@ -10,7 +10,7 @@ export default function SpaceLocationCard({ data, updateData, next, prev }) {
   };
 
   return (
-    <div>
+    <>
       <h3>Space Location</h3>
       <p>Where is your space located?</p>
       <LocationPicker onLocationSelect={handleLocationSelect} />
@@ -19,12 +19,10 @@ export default function SpaceLocationCard({ data, updateData, next, prev }) {
           📍 Selected Location: Latitude {location.lat.toFixed(5)}, Longitude {location.lng.toFixed(5)}
         </p>
       )}
-      <div>
-        <img className="prev-next" src="/next.png" onClick={next} />
+      <div className="prev-next">
+            <img className="prev" src="/previous.png" onClick={prev}/>
+            <img className="next" src="/next.png" onClick={next}/>
       </div>
-      <div>
-        <img className="prev-next" src="/previous.png" onClick={prev} />
-      </div>
-    </div>
+    </>
   );
 }
