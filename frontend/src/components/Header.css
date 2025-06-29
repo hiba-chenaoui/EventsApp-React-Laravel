@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'MontserratBlack';
+    src: url('./src/fonts/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  
+ /* General layout */
+.header1 {
+    
+    padding-left: 70px;
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2); /* Subtle semi-transparent background */
+    backdrop-filter: blur(20px); /* Modern glass effect */
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  .logo1 {
+    
+    font-family: 'MontserratBlack', sans-serif;
+    font-size: 33px;
+    font-weight: normal; /* Ensure the font is not being overridden */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: -3rem;
+  }
+  
+  .navdiv {
+    display: flex;
+     align-items: center; 
+     justify-content: space-between;
+     max-width: 1400px;
+     margin: 0 auto;
+  }
+
+  li{
+    list-style: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  li:hover {
+    transform: translateY(-2px);
+}
+
+  li a{
+     color : white;
+     font-size: 18px;
+     font-family: 'MontserratBlack', sans-serif;
+     margin-right: 25px;
+     text-decoration: none;
+     transition: color 0.3s ease;
+     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  li a:hover {
+    color: #ffd000;
+}
+
+  button{
+    font-family: 'MontserratBlack', sans-serif;
+    font-size: 16px;
+    background-color: #ffd000;
+    margin-left: 10px;
+    border-radius: 25px; /* More rounded */
+    text-decoration: none;
+    padding: 10px 20px; /* More padding */
+    width: auto; /* Let content define width */
+    min-width: 110px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: #ffda33;
+}
+
+  button a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  

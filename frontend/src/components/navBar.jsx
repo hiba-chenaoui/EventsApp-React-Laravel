@@ -24,14 +24,14 @@ export default function NavBar({setForm}){
         console.log(data);
         setUser(null);
         setToken(null);
-        navigate("/");
+        navigate("/Welcome");
 
     }
 
 
     return(
      <header className="header">
-      <h1 className="logo">SoulHub</h1>
+      <h1 className="logo">EVENTCANVA</h1>
 
       <div className="dual-button">
         { user ? (

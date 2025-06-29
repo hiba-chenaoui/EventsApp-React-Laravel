@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Montserratbold';
+    src: url('./src/fonts/static/Montserrat-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratRegular';
+    src: url('./src/fonts/static/Montserrat-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.roles-section {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+    padding: 70px 180px;
+  }
+  
+  .role-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .role-row.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .role-image {
+    flex: 1 1 600px;
+    max-width: 650px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 0px;
+  }
+  
+  .role-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+  }
+  
+  
+  .role-text {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .role-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-family: 'Montserratbold', sans-serif;
+  }
+  
+  .role-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #444;
+    font-family: 'MontserratRegular', sans-serif;
+  }
+  
+  .role-text p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-family: 'MontserratRegular', sans-serif;
+  }
+  
+  .role-button {
+    display: inline-block;
+    background-color: #ffd000;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'MontserratRegular', sans-serif;
+  }
+  
+  .role-button:hover {
+    background-color: #ffc400;
+  }
+  

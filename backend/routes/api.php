@@ -48,3 +48,8 @@ Route::delete('/equipments/delete/{id}', [EquipmentController::class, 'delete'])
 
 
 
+
+use App\Http\Controllers\EventController;
+Route::post('/events', [EventController::class, 'store']);
+Route::get('/events', [EventController::class, 'index']);
+

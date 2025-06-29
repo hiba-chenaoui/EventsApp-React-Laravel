@@ -1,23 +1,22 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import Button from "../components/button";
 import NavBar from "../components/navBar";
 import RegistrationWizard from "../components/RegistrationWizard";
+import OrganizerPage from "./OrganizerPage";  // import new organizer page
 
+export default function Profile() {
+  const { user } = useContext(AppContext);
 
-export default function Profile(){
-    const {user, token} = useContext(AppContext);
-    const navigate = useNavigate(); 
-
-    if (!user) {
+  if (!user) {
     return <p>Loading user info...</p>;
-    }
-    console.log("User role:", user.role);
-    return(
-        <>
-        <NavBar/>
-        <RegistrationWizard/>
-        </>
-    )
+  }
+
+  return (
+    <>
+      <NavBar />
+      {user.role === "Service-provider" && <RegistrationWizard />}
+      {user.role === "Organizer" && <OrganizerPage />}
+      {/* You can add other roles here as needed */}
+    </>
+  );
 }
